@@ -15,17 +15,19 @@ a seleção dele
 a seleção dele 
 */
 
-const botoes = document.querySelectorAll(".botao");
-const personagens = document.querySelectorAll(".personagem");
+document.addEventListener("DOMContentLoaded", () => {
+	const botoes = document.querySelectorAll(".botao");
+	const personagens = document.querySelectorAll(".personagem");
 
-botoes.forEach((botao, indice) => {
-	botao.addEventListener("click", () => {
-		const botaoSelecionado = document.querySelector(".botao.selecionado");
-		botaoSelecionado.classList.remove("selecionado");
-		botao.classList.add("selecionado");
+	botoes.forEach((botao, indice) => {
+		botao.addEventListener("click", () => {
+			// Remove o botão selecionado atual
+			document.querySelector(".botao.selecionado")?.classList.remove("selecionado");
+			botao.classList.add("selecionado");
 
-		const personagemSelecionado = document.querySelector(".personagem.selecionado");
-		personagemSelecionado.classList.remove("selecionado");
-		personagens[indice].classList.add("selecionado");
+			// Remove o personagem atual e mostra o novo
+			document.querySelector(".personagem.selecionado")?.classList.remove("selecionado");
+			personagens[indice].classList.add("selecionado");
+		});
 	});
 });
